@@ -6,4 +6,4 @@ const ErrorTable = () => {
   );
 };
 
-export default ErrorTable;
+export default ErrorTable

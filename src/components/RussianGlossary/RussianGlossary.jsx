@@ -6,4 +6,4 @@ const RussianGlossary = () => {
   );
 };
 
-export default RussianGlossary;
+export default RussianGlossary
