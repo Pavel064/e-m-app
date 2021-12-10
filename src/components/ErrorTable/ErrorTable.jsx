@@ -2,7 +2,9 @@ import React from "react";
 
 const ErrorTable = () => {
   return (
-    <div className="item ErrorTable">error table</div>
+    <div className="item ErrorTable">
+      error table
+      </div>
   );
 };
 
