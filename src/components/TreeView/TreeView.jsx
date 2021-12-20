@@ -3,7 +3,9 @@ import {RepositoryContext, FileContext} from 'gitea-react-toolkit';
 
 const TreeView = () => {
   const { state: repo, component: repoComponent } = useContext(RepositoryContext);
-  
+  const { state: file, component: fileComponent } = useContext(FileContext);
+  console.log(file);
+    
   return (
     <div className="item TreeView">
       {(!repo && repoComponent) || fileComponent},
