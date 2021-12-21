@@ -7,7 +7,7 @@ const ErrorTable = () => {
 
   return (
     <div className="item ErrorTable">
-      {file?.content || 'No data'}     
+      {file?.content || 'ErrorTable'}     
     </div>
   );
 };
