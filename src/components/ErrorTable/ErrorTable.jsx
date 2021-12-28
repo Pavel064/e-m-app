@@ -5,6 +5,7 @@ import { CsvToHtmlTable } from 'react-csv-to-table';
 const ErrorTable = () => {
   const { state: file } = useContext(FileContext);
   const tab = "\t";
+  console.log(file);
   return (
     <div className="item ErrorTable">
       <CsvToHtmlTable

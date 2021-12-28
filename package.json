@@ -9,12 +9,12 @@
     "@material-ui/styles": "^4.11.4",
     "axios": "^0.24.0",
     "gitea-react-toolkit": "^1.11.1",
-    "papaparse": "^5.3.1",
     "react": "^17.0.2",
     "react-csv-to-table": "^0.0.4",
     "react-dom": "^17.0.2",
     "react-hotkeys-hook": "^3.4.4",
     "react-router-dom": "^6.0.2",
+    "usfm-js": "^3.3.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
