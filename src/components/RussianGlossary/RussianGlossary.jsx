@@ -7,28 +7,29 @@ const baseURL = 'https://git.door43.org/ru_gl/ru_rob/raw/branch/master/08-RUT.us
 
 const RussianGlossary = () => {
   const [chapter, setChapter] = useState([]);
-  const [chapterKey, setChapterKey] = useState('1');
+  // const [chapterKey, setChapterKey] = useState('1');
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       const usfmJSON = toJSON(response.data);
       const { chapters } = usfmJSON;
 
-      setChapter(chapters[1]);
+      setChapter(chapters);
       // console.log(chapters);
     });
-  }, [chapterKey]);
+  }, []);
 
   console.log(chapter[1]);
 
   return (
     <div className="item RussianGlossary">
+      <div> Chapters</div>
       <div>
-        Chapters
-        {chapter.length > 0 ? (
+       
+        {chapter ? (
           <Chapters chapters={chapter} paragraphs showUnsupported />
         ) : (
-          ''
+          'pusto'
         )}
       </div>
     </div>
