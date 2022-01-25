@@ -1,9 +1,7 @@
-import React, { useState } from "react";
 import {
-    AuthenticationContextProvider,
-    RepositoryContextProvider,
-    FileContextProvider,
-    }  from 'gitea-react-toolkit';
+    AuthenticationContextProvider, FileContextProvider, RepositoryContextProvider
+} from 'gitea-react-toolkit';
+import React from "react";
 import ErrorTable from "./components/ErrorTable/ErrorTable";
 import RussianGlossary from "./components/RussianGlossary/RussianGlossary";
 import TreeView from "./components/TreeView/TreeView";
