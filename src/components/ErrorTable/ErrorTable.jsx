@@ -10,13 +10,13 @@ const ErrorTable = () => {
 
   function renderCell(value, colIdx, rowIdx) {
     if (colIdx === 0) {
-      function handleClick(e) {    e.preventDefault();    console.log('The link was clicked.');  }
+      function handleClick(e) {
+        e.preventDefault();
+        console.log('The link was clicked.');
+      }
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <a
-          href="#"
-          onClick={handleClick}
-        >
+        <a href="#" onClick={handleClick}>
           {value.split('')}
         </a>
       );
