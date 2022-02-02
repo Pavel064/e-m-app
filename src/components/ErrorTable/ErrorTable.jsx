@@ -7,19 +7,18 @@ import RussianGlossary from '../../components/RussianGlossary/RussianGlossary';
 
 const ErrorTable = () => {
   const { state: file } = useContext(FileContext);
-  const {state:path} = useContext(FileContext);
+  const { state: path } = useContext(FileContext);
   console.log(path?.path);
   const tab = '\t';
 
   const [showRG, setShowRG] = useState(false);
 
-  console.log(file?.content.split('\n').map((el) => el.split('\t')));
+  // console.log(file?.content.split('\n').map((el) => el.split('\t')));
 
   function renderCell(value, colIdx) {
     const handleClick = () => {
       console.log(value);
-      setShowRG(showRG);
-      //  <RussianGlossary />;
+      setShowRG(true);
     };
 
     if (colIdx === 0) {
@@ -42,9 +41,7 @@ const ErrorTable = () => {
           tableClassName="table table-striped table-hover"
           renderCell={renderCell}
         />
-
       </div>
-
       {showRG && <RussianGlossary />}
     </>
   );
