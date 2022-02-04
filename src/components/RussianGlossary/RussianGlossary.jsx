@@ -19,7 +19,7 @@ const RussianGlossary = () => {
     });
   }, []);
 
-  console.log(chapter[1]);
+  // console.log(chapter[1]);
 
   return (
     <div className="item RussianGlossary">

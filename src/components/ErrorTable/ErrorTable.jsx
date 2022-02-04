@@ -8,16 +8,43 @@ import RussianGlossary from '../../components/RussianGlossary/RussianGlossary';
 const ErrorTable = () => {
   const { state: file } = useContext(FileContext);
   const { state: path } = useContext(FileContext);
-  console.log(path?.path);
+
+  const splitPath = path?.path.split('/').map((el) => el.split('_'));
+
   const tab = '\t';
 
   const [showRG, setShowRG] = useState(false);
 
-  // console.log(file?.content.split('\n').map((el) => el.split('\t')));
-
   function renderCell(value, colIdx) {
     const handleClick = () => {
-      console.log(value);
+      const getNameBook = splitPath[1][1].split('.');
+      const nameBook = getNameBook[0];
+      let bookURL;
+      if (nameBook === 'EST') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/17-EST.usfm';
+      }
+      if (nameBook === 'JER') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/24-JER.usfm';
+      }
+      if (nameBook === 'JON') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/32-JON.usfm';
+      }
+      if (nameBook === 'MAT') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/41-MAT.usfm';
+      }
+      if (nameBook === 'MIC') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/33-MIC.usfm';
+      }
+      if (nameBook === 'RUT') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/raw/branch/master/08-RUT.usfm';
+      }
+      if (nameBook === 'TIT') {
+        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/57-TIT.usfm';
+      }
+
+      console.log(bookURL);
+      console.log(nameBook);
+      console.log(value.split(''));
       setShowRG(true);
     };
 
