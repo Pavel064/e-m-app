@@ -1,3 +1,4 @@
+import { Box, Paper } from '@material-ui/core';
 import {
   AuthenticationContextProvider,
   FileContextProvider,
@@ -28,11 +29,12 @@ function App() {
       >
         <FileContextProvider filepath={filepath} onFilepath={setFilepath}>
           <div className="App">
-            <div className="grid-container">
+            <Box className="grid-container">
               <TreeView />
               <ErrorTable />
               {/* <RussianGlossary /> */}
-            </div>
+              
+            </Box>
           </div>
         </FileContextProvider>
       </RepositoryContextProvider>

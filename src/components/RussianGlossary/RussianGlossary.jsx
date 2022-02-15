@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { toJSON } from 'usfm-js';
 import { Chapters } from 'scripture-resources-rcl';
+import { Paper } from '@material-ui/core';
 
 const baseURL = 'https://git.door43.org/ru_gl/ru_rob/raw/branch/master/08-RUT.usfm';
 
@@ -22,7 +23,7 @@ const RussianGlossary = () => {
   // console.log(chapter[1]);
 
   return (
-    <div className="item RussianGlossary">
+    <Paper className="item RussianGlossary"  variant='outlined'>
       <div> Chapters</div>
       <div>
        
@@ -32,7 +33,7 @@ const RussianGlossary = () => {
           'pusto'
         )}
       </div>
-    </div>
+    </Paper>
   );
 };
 

@@ -4,6 +4,7 @@ import TsvTable from '../TsvTable/TsvTable';
 import '../../styles/App.css';
 import { useState } from 'react';
 import RussianGlossary from '../../components/RussianGlossary/RussianGlossary';
+import { Paper } from '@material-ui/core';
 
 const ErrorTable = () => {
   const { state: file } = useContext(FileContext);
@@ -61,14 +62,14 @@ const ErrorTable = () => {
   }
   return (
     <>
-      <div className="item ErrorTable">
+      <Paper className="item ErrorTable" variant='outlined'>
         <TsvTable
           data={file?.content}
           csvDelimiter={tab}
           tableClassName="table table-striped table-hover"
           renderCell={renderCell}
         />
-      </div>
+      </Paper>
       {showRG && <RussianGlossary />}
     </>
   );
