@@ -1,33 +1,38 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toJSON } from 'usfm-js';
-import { Chapters } from 'scripture-resources-rcl';
+import { Chapter } from 'scripture-resources-rcl';
 import { Paper } from '@material-ui/core';
 
-
-const RussianGlossary = ({url, chapter}) => {
-  const [chapters, setChapters] = useState([]);
+const RussianGlossary = ({ url, chapter }) => {
+  const [chapters, setChapters] = useState(false);
   // const [chapterKey, setChapterKey] = useState('1');
+
+  const [usfmJson, setUsfmJson] = useState();
+
+  React.useEffect(() => {
+    setChapters(usfmJson?.chapters);
+  }, [usfmJson]);
 
   React.useEffect(() => {
     axios.get(url).then((response) => {
-      const usfmJSON = toJSON(response.data);
-      const data  = usfmJSON;
-
-      setChapters(data.chapters);
-      // console.log(chapters);
+      setUsfmJson(toJSON(response.data));
     });
-  }, [url]);
+  }, [chapter, url]);
 
   // console.log(chapter[1]);
 
   return (
-    <Paper className="item RussianGlossary"  variant='outlined'>
+    <Paper className="item RussianGlossary" variant="outlined">
       <div> Chapters</div>
       <div>
-       
-        {chapter ? (
-          <Chapters chapters={chapters} paragraphs showUnsupported />
+        {chapters && chapters[chapter] !== undefined ? (
+          <Chapter
+            chapterKey={chapter}
+            chapter={chapters[chapter]}
+            paragraphs
+            showUnsupported
+          />
         ) : (
           'empty'
         )}

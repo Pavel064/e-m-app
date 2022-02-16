@@ -20,9 +20,8 @@
 }
 
 .item::-webkit-scrollbar-thumb {
-  background-color: #223c50;
+  background-color: #8a8a8a;
   border-radius: 10px;
-  background-color: #bfbfbf;
 }
 
 .ErrorTable {
