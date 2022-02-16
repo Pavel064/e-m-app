@@ -6,7 +6,6 @@ import { Paper } from '@material-ui/core';
 
 const RussianGlossary = ({ url, chapter }) => {
   const [chapters, setChapters] = useState(false);
-  // const [chapterKey, setChapterKey] = useState('1');
 
   const [usfmJson, setUsfmJson] = useState();
 
@@ -19,8 +18,6 @@ const RussianGlossary = ({ url, chapter }) => {
       setUsfmJson(toJSON(response.data));
     });
   }, [chapter, url]);
-
-  // console.log(chapter[1]);
 
   return (
     <Paper className="item RussianGlossary" variant="outlined">

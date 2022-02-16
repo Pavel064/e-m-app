@@ -6,7 +6,6 @@ import {
 } from 'gitea-react-toolkit';
 import React from 'react';
 import ErrorTable from './components/ErrorTable/ErrorTable';
-// import RussianGlossary from './components/RussianGlossary/RussianGlossary';
 import TreeView from './components/TreeView/TreeView';
 import './styles/App.css';
 
@@ -32,7 +31,6 @@ function App() {
             <Box className="grid-container">
               <TreeView />
               <ErrorTable />
-              {/* <RussianGlossary /> */}
             </Box>
           </div>
         </FileContextProvider>
