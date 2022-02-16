@@ -4,21 +4,20 @@ import { toJSON } from 'usfm-js';
 import { Chapters } from 'scripture-resources-rcl';
 import { Paper } from '@material-ui/core';
 
-const baseURL = 'https://git.door43.org/ru_gl/ru_rob/raw/branch/master/08-RUT.usfm';
 
-const RussianGlossary = () => {
-  const [chapter, setChapter] = useState([]);
+const RussianGlossary = ({url, chapter}) => {
+  const [chapters, setChapters] = useState([]);
   // const [chapterKey, setChapterKey] = useState('1');
 
   React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get(url).then((response) => {
       const usfmJSON = toJSON(response.data);
-      const { chapters } = usfmJSON;
+      const data  = usfmJSON;
 
-      setChapter(chapters);
+      setChapters(data.chapters);
       // console.log(chapters);
     });
-  }, []);
+  }, [url]);
 
   // console.log(chapter[1]);
 
@@ -28,9 +27,9 @@ const RussianGlossary = () => {
       <div>
        
         {chapter ? (
-          <Chapters chapters={chapter} paragraphs showUnsupported />
+          <Chapters chapters={chapters} paragraphs showUnsupported />
         ) : (
-          'pusto'
+          'empty'
         )}
       </div>
     </Paper>

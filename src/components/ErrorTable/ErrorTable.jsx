@@ -15,37 +15,25 @@ const ErrorTable = () => {
   const tab = '\t';
 
   const [showRG, setShowRG] = useState(false);
+  const [bookURL, setBookURL] = useState('');
+  const [chapter, setChapter] = useState('');
 
   function renderCell(value, colIdx) {
     const handleClick = () => {
       const getNameBook = splitPath[1][1].split('.');
       const nameBook = getNameBook[0];
-      let bookURL;
-      if (nameBook === 'EST') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/17-EST.usfm';
-      }
-      if (nameBook === 'JER') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/24-JER.usfm';
-      }
-      if (nameBook === 'JON') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/32-JON.usfm';
-      }
-      if (nameBook === 'MAT') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/41-MAT.usfm';
-      }
-      if (nameBook === 'MIC') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/33-MIC.usfm';
-      }
-      if (nameBook === 'RUT') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/raw/branch/master/08-RUT.usfm';
-      }
-      if (nameBook === 'TIT') {
-        bookURL = 'https://git.door43.org/ru_gl/ru_rob/src/branch/master/57-TIT.usfm';
-      }
 
-      console.log(bookURL);
       console.log(nameBook);
-      console.log(value.split(''));
+      setChapter(value.split(':')[0]);
+
+      const bookNames = {
+        EST: '17-EST',
+        JER: '24-JER',
+        JON: '32-JON',
+      };
+      const _bookURL = `https://git.door43.org/ru_gl/ru_rob/raw/branch/master/${bookNames[nameBook]}.usfm`;
+      setBookURL(_bookURL);
+
       setShowRG(true);
     };
 
@@ -62,7 +50,7 @@ const ErrorTable = () => {
   }
   return (
     <>
-      <Paper className="item ErrorTable" variant='outlined'>
+      <Paper className="item ErrorTable" variant="outlined">
         <TsvTable
           data={file?.content}
           csvDelimiter={tab}
@@ -70,7 +58,7 @@ const ErrorTable = () => {
           renderCell={renderCell}
         />
       </Paper>
-      {showRG && <RussianGlossary />}
+      {showRG && <RussianGlossary url={bookURL} chapter={chapter} />}
     </>
   );
 };
