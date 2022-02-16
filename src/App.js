@@ -13,7 +13,7 @@ function App() {
   const [repository, setRepository] = React.useState();
   const [filepath, setFilepath] = React.useState();
   const config = {
-    server: 'https://bg.door43.org',
+    server: 'https://git.door43.org',
     tokenid: 'PlaygroundTesting',
   };
 
