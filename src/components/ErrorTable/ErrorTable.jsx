@@ -9,9 +9,9 @@ import { Paper } from '@material-ui/core';
 const ErrorTable = () => {
   const { state: file } = useContext(FileContext);
   const { state: path } = useContext(FileContext);
-  console.log({path:path?.path.split('/')});
+  console.log({ path: path?.path.split('/') });
   const splitPath = path?.path.split('/').map((el) => el.split('_'));
-  const splitPath1 = path?.path.split('/')[0];
+  const getOwner = path?.path.split('/')[0];
   const tab = '\t';
 
   const [showRG, setShowRG] = useState(false);
@@ -93,7 +93,7 @@ const ErrorTable = () => {
         JUD: '66-JUD',
         REV: '67-REV',
       };
-      const _bookURL = `https://git.door43.org/ru_gl/${splitPath1}/raw/branch/master/${bookNames[nameBook]}.usfm`;
+      const _bookURL = `https://git.door43.org/ru_gl/${getOwner}/raw/branch/master/${bookNames[nameBook]}.usfm`;
       setBookURL(_bookURL);
       console.log(_bookURL);
       setShowRG(true);
