@@ -1,4 +1,4 @@
-import { Box, Paper } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import {
   AuthenticationContextProvider,
   FileContextProvider,
@@ -33,7 +33,6 @@ function App() {
               <TreeView />
               <ErrorTable />
               {/* <RussianGlossary /> */}
-              
             </Box>
           </div>
         </FileContextProvider>
